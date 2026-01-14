@@ -1,6 +1,5 @@
 package com.ai.resume_analyzer.controller;
 
-import com.ai.resume_analyzer.model.User;
 import com.ai.resume_analyzer.response.UserResponse;
 import com.ai.resume_analyzer.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,17 +25,6 @@ public class UserController {
         }
         else{
             return ResponseEntity.ok(user);
-        }
-    }
-
-    @PostMapping("/create")
-    public ResponseEntity<?> createUser(@RequestBody User createUserRequest) {
-        try{
-            UserResponse newUser = userService.createUser(createUserRequest);
-            return ResponseEntity.ok(newUser);
-        }
-        catch(Exception e){
-            return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
 }
